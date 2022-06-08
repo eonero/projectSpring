@@ -1,20 +1,27 @@
 package com.javaproject.course.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable {
+@Entity
+public class Usuario implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String Email;
     private String phone;
     private String Password;
 
-    public User() {
+    public Usuario() {
     }
 
-    public User(long id, String name, String email, String phone, String password) {
+    public Usuario(long id, String name, String email, String phone, String password) {
         this.id = id;
         this.name = name;
         Email = email;
@@ -67,7 +74,7 @@ public class User implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        Usuario user = (Usuario) o;
         return id == user.id;
     }
 
