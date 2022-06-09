@@ -2,7 +2,9 @@ package com.javaproject.course.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -16,8 +18,12 @@ public class Category implements Serializable {
     private String name;
 
 
+    @Transient
+    private Set<Product> products = new HashSet<>();
 
-
+    public Set<Product> getProducts() {
+        return products;
+    }
 
     public Category() {
     }
