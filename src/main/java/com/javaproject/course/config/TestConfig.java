@@ -2,7 +2,7 @@ package com.javaproject.course.config;
 
 
 import com.javaproject.course.entities.Usuario;
-import com.javaproject.course.repositories.UserRepository;
+import com.javaproject.course.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +16,7 @@ public class TestConfig implements CommandLineRunner {
 
 
     @Autowired
-    private UserRepository userRepository;
-
+    private UsuarioRepository usuarioRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -25,7 +24,7 @@ public class TestConfig implements CommandLineRunner {
         Usuario u1 = new Usuario(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
         Usuario u2 = new Usuario(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
-        userRepository.saveAll(Arrays.asList(u1,u2));
+        usuarioRepository.saveAll(Arrays.asList(u1,u2));
 
     }
 }

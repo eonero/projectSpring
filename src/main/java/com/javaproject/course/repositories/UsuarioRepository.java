@@ -2,6 +2,9 @@ package com.javaproject.course.repositories;
 
 import com.javaproject.course.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository <Usuario, Long> {
+
+@Repository
+public interface UsuarioRepository extends JpaRepository <Usuario, Long> {
 }
