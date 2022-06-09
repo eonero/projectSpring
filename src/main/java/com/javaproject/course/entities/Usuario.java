@@ -1,5 +1,4 @@
 package com.javaproject.course.entities;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,28 +11,28 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
-    private String Email;
+    private String email;
     private String phone;
-    private String Password;
+    private String password;
 
     public Usuario() {
     }
 
-    public Usuario(long id, String name, String email, String phone, String password) {
+    public Usuario(Long id, String name, String email, String phone, String password) {
         this.id = id;
         this.name = name;
-        Email = email;
+        this.email = email;
         this.phone = phone;
-        Password = password;
+        this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,11 +45,11 @@ public class Usuario implements Serializable {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPhone() {
@@ -62,20 +61,19 @@ public class Usuario implements Serializable {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario user = (Usuario) o;
-        return id == user.id;
+        return id.equals(user.id);
     }
 
     @Override
