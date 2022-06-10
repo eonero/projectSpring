@@ -23,6 +23,11 @@ public class UsuarioService {
 
     }
 
+    public Usuario insert (Usuario obj){
+        return repository.save(obj);
+
+    }
+
 
 
 }
