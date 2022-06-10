@@ -1,5 +1,6 @@
 package com.javaproject.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
@@ -17,6 +18,8 @@ public class Payment implements Serializable {
     private Long id;
     private Instant moment;
 
+
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;
