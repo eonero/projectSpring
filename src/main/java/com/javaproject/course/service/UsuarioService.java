@@ -2,7 +2,11 @@ package com.javaproject.course.service;
 
 import com.javaproject.course.entities.Usuario;
 import com.javaproject.course.repositories.UsuarioRepository;
+import com.javaproject.course.service.exceptions.DatabaseException;
+import com.javaproject.course.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,9 +21,11 @@ public class UsuarioService {
     public List<Usuario> findAll(){
         return repository.findAll();
     }
+
+
     public Usuario findById (Long id){
         Optional<Usuario> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(()-> new ResourceNotFoundException(id));
 
     }
 
@@ -27,9 +33,16 @@ public class UsuarioService {
         return repository.save(obj);
     }
 
-    public void delete(Long id){
-        repository.deleteById(id);
 
+    public void delete(Long id){
+        try {
+            repository.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException e){
+            throw new ResourceNotFoundException(id);
+        }catch (DataIntegrityViolationException e){
+            throw  new DatabaseException(e.getMessage());
+        }
     }
 
     public Usuario uptade(Long id, Usuario obj){
