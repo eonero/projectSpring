@@ -3,6 +3,7 @@ package com.javaproject.course.resources;
 import com.javaproject.course.entities.Usuario;
 import com.javaproject.course.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -42,5 +43,18 @@ public class UsuarioResources {
 
     }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value ="/{id}")
+        public ResponseEntity<Usuario> uptade(@PathVariable Long id, @RequestBody Usuario obj){
+            obj = service.uptade(id, obj);
+            return ResponseEntity.ok().body(obj);
+
+
+    }
 
 }
