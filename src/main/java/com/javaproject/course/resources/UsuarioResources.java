@@ -3,13 +3,11 @@ package com.javaproject.course.resources;
 import com.javaproject.course.entities.Usuario;
 import com.javaproject.course.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.annotation.Resource;
-import javax.annotation.Resources;
 import java.net.URI;
 import java.util.List;
 
@@ -50,8 +48,8 @@ public class UsuarioResources {
     }
 
     @PutMapping(value ="/{id}")
-        public ResponseEntity<Usuario> uptade(@PathVariable Long id, @RequestBody Usuario obj){
-            obj = service.uptade(id, obj);
+        public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario obj){
+            obj = service.update(id, obj);
             return ResponseEntity.ok().body(obj);
 
 

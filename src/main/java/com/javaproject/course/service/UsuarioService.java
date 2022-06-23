@@ -46,7 +46,7 @@ public class UsuarioService {
         }
     }
 
-    public Usuario uptade(Long id, Usuario obj){
+    public Usuario update(Long id, Usuario obj){
         try {
             Usuario entity = repository.getOne(id);
             updateData(entity, obj);

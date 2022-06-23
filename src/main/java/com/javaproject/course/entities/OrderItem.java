@@ -2,7 +2,7 @@ package com.javaproject.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.javaproject.course.entities.pk.OrderItemPK;
-import org.aspectj.weaver.ast.Or;
+
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
